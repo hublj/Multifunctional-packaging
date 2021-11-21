@@ -17,19 +17,6 @@ on:
   schedule:
     - cron: '30 22 * * *'
 
-env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ARMv8/lede-gcc11.config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2.sh
-  UPLOAD_FIRMWARE: false
-  UPLOAD_RELEASE: true
-  RECENT_LASTEST: 30
-  TZ: Asia/Shanghai
-  FILE_NAME: armv8_mini
-  PRODUCT_NAME: ARMv8_mini
 
 jobs:
   build:
