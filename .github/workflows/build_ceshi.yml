@@ -17,6 +17,10 @@ on:
   schedule:
     - cron: '30 22 * * *'
 
+env:
+  UPLOAD_COWTRANSFER: false
+  RELEASE: true
+  TZ: Asia/Shanghai
 
 jobs:
   build:
