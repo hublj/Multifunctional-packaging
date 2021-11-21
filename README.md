@@ -1,44 +1,40 @@
-# Actions-OpenWrt
+# 此项目基于flippy的67+o和67+打包N1的openwrt
 
-[![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/P3TERX/Actions-OpenWrt/blob/master/LICENSE)
-![GitHub Stars](https://img.shields.io/github/stars/P3TERX/Actions-OpenWrt.svg?style=flat-square&label=Stars&logo=github)
-![GitHub Forks](https://img.shields.io/github/forks/P3TERX/Actions-OpenWrt.svg?style=flat-square&label=Forks&logo=github)
+# 快照功能
+![Alt text](https://github.com/hublj/N1dabao-1/blob/main/img/R.jpeg)
 
-Build OpenWrt using GitHub Actions
+使用方法：固件新刷入或采用新版的 update-xxx-openwrt.sh 脚本升级之后就具备了快照功能，工具包名称：由于取名困难，故采用了 flippy 为命令名称（/usr/sbin/flippy)，在ssh或ttyd下输入即可，全程中文菜单，全交互式操作。
 
-[Read the details in my blog (in Chinese) | 中文教程](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
+# 默认IP及密码
+默认IP 192.168.1.201  密码 password
 
-## Usage
+# N1全新安装
+ 下载对应版本固件
+ 
+ 将固件写入U盘或TF卡 推荐写盘软件 rufu或者balenaEtcher任选其一
+ 
+ 插入U盘启动盒子，输入192.168.1.201进入后台
+ 
+ 在系统——TTYD终端——输入用户名root；密码password
+ 
+ 输入安装命令 cd root ./install-to-emmc.sh
+ 
+ 如果显示挂载失败，重新执行上述安装命令./install-to-emmc.sh
 
-- Click the [Use this template](https://github.com/P3TERX/Actions-OpenWrt/generate) button to create a new repository.
-- Generate `.config` files using [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) source code. ( You can change it through environment variables in the workflow file. )
-- Push `.config` file to the GitHub repository.
-- Select `Build OpenWrt` on the Actions page.
-- Click the `Run workflow` button.
-- When the build is complete, click the `Artifacts` button in the upper right corner of the Actions page to download the binaries.
+# N1在线升级方法
+ 
+ cd /mnt/mmcblk2p4
+ 
+ wget 升级脚本为openwrt-update-amlogic
+ 
+ wget .gz后缀名的固件链接,鼠标右击后缀.gz文件获取链接地址
+ 
+ gzip -d 上一步下载的固件全名
+ 
+ chmod + x openwrt-update-amlogic
+ 
+ ./openwrt-update-amlogic 之后有提示，输入y为保留配置升级，选n相当于重装。升级完成后系统会自动重启，稍安勿躁
 
-## Tips
 
-- It may take a long time to create a `.config` file and build the OpenWrt firmware. Thus, before create repository to build your own firmware, you may check out if others have already built it which meet your needs by simply [search `Actions-Openwrt` in GitHub](https://github.com/search?q=Actions-openwrt).
-- Add some meta info of your built firmware (such as firmware architecture and installed packages) to your repository introduction, this will save others' time.
-
-## Acknowledgments
-
-- [Microsoft Azure](https://azure.microsoft.com)
-- [GitHub Actions](https://github.com/features/actions)
-- [OpenWrt](https://github.com/openwrt/openwrt)
-- [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
-- [tmate](https://github.com/tmate-io/tmate)
-- [mxschmitt/action-tmate](https://github.com/mxschmitt/action-tmate)
-- [csexton/debugger-action](https://github.com/csexton/debugger-action)
-- [Cowtransfer](https://cowtransfer.com)
-- [WeTransfer](https://wetransfer.com/)
-- [Mikubill/transfer](https://github.com/Mikubill/transfer)
-- [softprops/action-gh-release](https://github.com/softprops/action-gh-release)
-- [ActionsRML/delete-workflow-runs](https://github.com/ActionsRML/delete-workflow-runs)
-- [dev-drprasad/delete-older-releases](https://github.com/dev-drprasad/delete-older-releases)
-- [peter-evans/repository-dispatch](https://github.com/peter-evans/repository-dispatch)
-
-## License
-
-[MIT](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © P3TERX
+# 自动更新说明
+ 固件采用自动编译，Acrions将会在每天监控上游代码是否更新，如passwall ssrp等，一旦检测到上游代码更加将会自动编译打包，于每天上午7时30分发布最新版固件。
