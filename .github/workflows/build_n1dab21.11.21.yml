@@ -22,9 +22,9 @@ jobs:
             release_name: openwrt_s905d_n1_k5.4-67+o.img
           - flippy_name: 67+
             release_name: openwrt_s905d_n1_k5.14-67+.img
-          - flippy_name: 67+
+          - flippy_name: 67++
             release_name: openwrt_s905d_n1_k5.10-67++.img
-          - flippy_name: 67+
+          - flippy_name: 67+++
             release_name: openwrt_s905d_n1_k5.15-67+++.img
     
     env:
