@@ -63,7 +63,7 @@ jobs:
       if: (!cancelled())
       uses: hublj/flippy-openwrt-actions@main
       env:
-        OPENWRT_ARMVIRT: https://github.com/hublj/op/releases/download/openwrt_s9xxx_2021.11.16.0501/openwrt-armvirt-64-default-rootfs.tar.gz
+        OPENWRT_ARMVIRT: https://github.com/hublj/21.11.22_lite/releases/download/ARMv8_ROOTFS/openwrt-armvirt-64-default-rootfs.tar.gz
         PACKAGE_SOC: s905d
         WHOAMI: hublj
         KERNEL_REPO_URL: https://github.com/breakings/OpenWrt/tree/main/opt/kernel
@@ -98,6 +98,7 @@ jobs:
         artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
         body: |
           默认IP：192.168.1.201 默认密码：password (WiFi密码同）
+          精简版
           当前使用版本:【编译前的最后一次➦[主源码](https://github.com/coolsnowwolf/lede)更新记录】
           自用精简包**，和F大本人集成的插件有**较大**差异。求稳用户推荐使用F大编译的➦[正式版本](https://github.com/breakings/OpenWrt/releases/tag/flippy_openwrt)。
           此为**因变动较大，从60及其以下版本升级到61或更高版本建议**全新刷入**或者**不保留配置**进行升级。
